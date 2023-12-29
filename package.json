@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "sortablejs": "^1.15.1"
+  },
+  "name": "to-do",
+  "description": "A sample web project that i'm using to practice javascript libraries uasge using html. css, tailwind, javascript, eslint, prettier, yarnJ\r and the sortable.js library",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drakejoshua/To-do.git"
+  },
+  "author": "Mabawonku Joshua",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/drakejoshua/To-do/issues"
+  },
+  "homepage": "https://github.com/drakejoshua/To-do#readme"
+}
