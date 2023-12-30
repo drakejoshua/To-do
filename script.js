@@ -1,30 +1,8 @@
-// create a tasks array to store all the initial and created tasks
-var tasksArray = [
-    {
-        id: 1,
-        text: "Brush Teeth"
-    },
-    {
-        id: 2,
-        text: "lay bed"
-    },
-    {
-        id: 3,
-        text: "think it"
-    },
-    {
-        id: 4,
-        text: "put a ding"
-    },
-    {
-        id: 5,
-        text: "motivate yourself"
-    },
-    {
-        id: 6,
-        text: "sing out loud"
-    }
-]
+// import the tasks array data from localStorage if existing to store all the initial and created tasks
+var tasksArray = ( 
+        JSON.parse( localStorage.getItem("todoproject-tasks") ) == null 
+        || JSON.parse( localStorage.getItem("todoproject-tasks")  == "" ) 
+    ) ? [] : JSON.parse( localStorage.getItem("todoproject-tasks") );
 
 
 // import the DOM representations of element on the page
@@ -91,7 +69,7 @@ var ToDoSectionStatefulRepresentation = new StatefulElement(
             break;
         }
     }
-)
+);
 
 
 // the deleteTask() function
@@ -129,6 +107,9 @@ function deleteTask( task ){
         tasksArray = newTasksArray;
 
         ToDoSectionStatefulRepresentation.internalState = { state: "not-empty", tasks: tasksArray };
+
+        // save the tasksArray to localStorage for later retrieval
+        localStorage.setItem( "todoproject-tasks", JSON.stringify( tasksArray ) );
     }
 }
 
@@ -158,6 +139,9 @@ function addTask() {
             state: "not-empty",
             tasks: tasksArray
         }
+
+        // save the tasksArray to localStorage for later retrieval
+        localStorage.setItem( "todoproject-tasks", JSON.stringify( tasksArray ) );
     } else {
         alert("Cannot create task with no objective");
     }
@@ -177,4 +161,8 @@ function updateSwapInTasksArray( oldIndex, newIndex ){
     // swap the positions of the duplicate selected and swapped task objects in the tasksArray
     tasksArray[ oldIndex ] = swappedTaskObject;
     tasksArray[ newIndex ] = selectedTaskObject;
- }
+
+
+    // save the tasksArray to localStorage for later retrieval
+    localStorage.setItem( "todoproject-tasks", JSON.stringify( tasksArray ) );
+}
