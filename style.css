@@ -125,3 +125,8 @@ li.task > span.task-icon:hover {
     background-color: white;
     color: black;
 }
+
+
+.swap-class {
+    background-color: rgb(204, 21, 21) !important;
+}
