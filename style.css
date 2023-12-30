@@ -1,18 +1,21 @@
 /* overriding browser default settings */
 body {
-    margin: 0px;
-    padding: 0px;
+    margin: 0rem;
+    padding: 0rem;
+}
+:root {
+    --marginal-padding: 12.5rem;
 }
 
 
 /* styling the navbar */
 nav {
-    padding: 20px 200px;
+    padding: 1.25rem var(--marginal-padding);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
 }
 nav * {
     color: black;
@@ -20,7 +23,7 @@ nav * {
     font-family: 'Roboto', sans-serif;
 }
 nav > #nav-logo {
-    font-size: 25px;
+    font-size: 1.5625rem;
     font-weight: 500;
 }
 nav > span {
@@ -31,24 +34,26 @@ nav > span > a {
 }
 
 
+
+/* shared styles among all sections on the page */
 section {
-    padding: 0px 200px;
+    padding: 0rem var(--marginal-padding);
 }
 
 
-/* styling the create-new */
+/* styling the create-new section */
 section#create-new {
     display: flex;
-    gap: 0px 20px;
+    gap: 0rem 1.25rem;
 }
 section#create-new > button {
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     color: white;
     background-color: black;
     outline: none;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
     text-transform: capitalize;
     cursor: pointer;
 }
@@ -56,12 +61,12 @@ section#create-new > input {
     flex-grow: 1;
     border: none;
     outline: none;
-    border-bottom: 2px solid black;
-    font-size: 16px;
+    border-bottom: 0.125rem solid black;
+    font-size: 1rem;
 }
 section#create-new > input::placeholder {
     text-transform: capitalize;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 
@@ -72,10 +77,10 @@ section#to-do > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 6.25rem;
 }
 section#to-do > div > span {
-    font-size: 120px;
+    font-size: 7.5rem;
 }
 section#to-do > div > h2 {
     font-family: 'Roboto', sans-serif;
@@ -86,27 +91,27 @@ section#to-do > div > h2 {
 
 section#to-do > ul {
     list-style-type: none;
-    padding: 0px;
+    padding: 0rem;
     display: flex;
     flex-direction: column;
-    gap: 10px 0px;
+    gap: 0.625rem 0rem;
 }
 ul#tasks-list > li.task {
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: black;
     color: white;
-    border-radius: 10px;
+    border-radius: 0.625rem;
 }
 li.task > span.task-name {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-family: 'Roboto', sans-serif;
 }
 li.task > span.task-icon {
-    font-size: 25px;
-    padding: 8px;
+    font-size: 1.5625rem;
+    padding: 0.5rem;
     border-radius: 100%;
     cursor: pointer;
     transition: all 0.2s ease-in 0.2s;
@@ -132,4 +137,59 @@ li.task > span.task-icon:hover {
 /* creating a styling swap class for sortable.js to use in the swap operation */
 .swap-class {
     background-color: rgb(204, 21, 21) !important;
+}
+
+
+
+/* adding responsiveness to the page */
+
+
+@media screen and ( max-width: 56.25rem ) {
+    :root {
+        --marginal-padding: 6.25rem;
+        font-size: 0.875rem;
+    }
+}
+
+
+@media screen and ( max-width: 31.25rem ) {
+    :root {
+        --marginal-padding: 0.625rem;
+        font-size: 0.875rem;
+    }
+
+
+    /* changing navbar logo and attribution size */
+    nav > #nav-logo {
+        font-size: 1.25rem;
+    }
+    nav > span {
+        font-size: 0.875rem;
+    }
+
+
+    /* changing the create-new input and button font size */
+    section#create-new > button,
+    section#create-new > input,
+    section#create-new > input::placeholder {
+        font-size: 0.875rem;
+    }
+
+
+    /* changing the font-size of the empty to-do list */
+    section#to-do > div > span {
+        font-size: 5rem;
+    }
+    section#to-do > div > h2 {
+        font-size: 1.125rem;
+    }
+
+
+    /* changing the size of the task objectives and delete-icon of the to-do */
+    li.task > span.task-name {
+        font-size: 1rem;
+    }
+    li.task > span.task-icon {
+        font-size: 1.4375rem;
+    }
 }
