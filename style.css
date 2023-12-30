@@ -1,0 +1,127 @@
+/* overriding browser default settings */
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: wheat;
+}
+
+
+/* styling the navbar */
+nav {
+    padding: 20px 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+nav * {
+    color: black;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+nav > #nav-logo {
+    font-size: 25px;
+    font-weight: 500;
+}
+nav > span {
+    text-transform: capitalize;
+}
+nav > span > a {
+    text-decoration: underline;
+}
+
+
+section {
+    padding: 0px 200px;
+}
+
+
+/* styling the create-new */
+section#create-new {
+    display: flex;
+    gap: 0px 20px;
+}
+section#create-new > button {
+    padding: 10px 20px;
+    color: white;
+    background-color: black;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+section#create-new > input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid black;
+    font-size: 16px;
+}
+section#create-new > input::placeholder {
+    text-transform: capitalize;
+    font-size: 16px;
+}
+
+
+
+/* styling the to-do section */
+section#to-do > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+section#to-do > div > span {
+    font-size: 120px;
+}
+section#to-do > div > h2 {
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+
+section#to-do > ul {
+    list-style-type: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0px;
+}
+ul#tasks-list > li.task {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+li.task > span.task-name {
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+li.task > span.task-icon {
+    font-size: 25px;
+    padding: 8px;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in 0.2s;
+}
+
+section#to-do.empty > ul, section#to-do.not-empty > div {
+    display: none;
+}
+section#to-do.not-empty > ul, section#to-do.empty > div {
+    display: flex;
+}
+
+
+
+li.task > span.task-icon:hover {
+    background-color: white;
+    color: black;
+}
