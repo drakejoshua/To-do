@@ -10,7 +10,8 @@ var tasksList = document.getElementById("tasks-list"), addButton = document.getE
     createTaskInput = document.getElementById("create-task-input");
 
 
-// create a stateful representation of the to-do section
+// create a stateful representation of the to-do section( using the stateful 
+// representation class from the one.js library )
 var ToDoSectionStatefulRepresentation = new StatefulElement( 
     document.getElementById("to-do"),
 
