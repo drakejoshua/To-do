@@ -63,13 +63,13 @@ var ToDoSectionStatefulRepresentation = new StatefulElement(
                     // clear the tasksList of all previous elements
                     tasksList.innerHTML = "";
     
-                    // make the tasksList a sortable
+                    // make the tasksList a sortable( using sortable.js )
                     var sortable = Sortable.create( tasksList, {
                         swap: true,
                         swapClass: "swap-class",
                         animation: 300,
                         onUpdate: function( event ) {
-                            // updateSortInTasksArray( event.oldIndex, event.newIndex );
+                            updateSwapInTasksArray( event.oldIndex, event.newIndex );
                         }
                     } );
     
@@ -162,3 +162,19 @@ function addTask() {
         alert("Cannot create task with no objective");
     }
 }
+
+
+
+// the updateSwapInTasksArray() function
+// this function is called to update the positions of task objects in the tasksArray after a swap in the tasksList
+// on the page
+function updateSwapInTasksArray( oldIndex, newIndex ){
+    // create duplicate task object for the selected task object ( as relating to the selected task element on the page )
+    // and also the swapped task object ( as relating to the swapped task element on the page )
+    var selectedTaskObject = tasksArray[oldIndex],
+        swappedTaskObject = tasksArray[newIndex];
+
+    // swap the positions of the duplicate selected and swapped task objects in the tasksArray
+    tasksArray[ oldIndex ] = swappedTaskObject;
+    tasksArray[ newIndex ] = selectedTaskObject;
+ }

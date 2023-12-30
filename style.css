@@ -2,7 +2,6 @@
 body {
     margin: 0px;
     padding: 0px;
-    background-color: wheat;
 }
 
 
@@ -68,6 +67,7 @@ section#create-new > input::placeholder {
 
 
 /* styling the to-do section */
+
 section#to-do > div {
     display: flex;
     flex-direction: column;
@@ -112,6 +112,8 @@ li.task > span.task-icon {
     transition: all 0.2s ease-in 0.2s;
 }
 
+
+/* conditional logic for the stateful representation of the to-do list */
 section#to-do.empty > ul, section#to-do.not-empty > div {
     display: none;
 }
@@ -120,13 +122,14 @@ section#to-do.not-empty > ul, section#to-do.empty > div {
 }
 
 
-
+/* adding interactions to the page */
 li.task > span.task-icon:hover {
     background-color: white;
     color: black;
 }
 
 
+/* creating a styling swap class for sortable.js to use in the swap operation */
 .swap-class {
     background-color: rgb(204, 21, 21) !important;
 }
