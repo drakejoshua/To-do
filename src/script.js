@@ -1,3 +1,11 @@
+// import the program dependencies
+import Sortable from "sortablejs";
+import { StatefulElement } from "./one";
+
+// import the styles for the page
+import "./style.css";
+
+
 // import the tasks array data from localStorage if existing to store all the initial and created tasks
 var tasksArray = ( 
         JSON.parse( localStorage.getItem("todoproject-tasks") ) == null 
@@ -58,11 +66,18 @@ var ToDoSectionStatefulRepresentation = new StatefulElement(
                             <li class="task" data-todoid="${task.id}"> 
                                 <span class="task-name">${task.text}</span>
                 
-                                <span class="task-icon material-symbols-rounded" onclick="deleteTask(this.parentElement)">
+                                <span class="task-icon material-symbols-rounded">
                                     delete
                                 </span>
                             </li>
                         `;
+                    }
+
+
+                    for ( var taskIcon of document.getElementsByClassName("task-icon") ) {
+                        taskIcon.addEventListener( "click", function( event ) {
+                            deleteTask( event.target.parentElement );
+                        })
                     }
                 } else {
                     element.statefulRepresentation.internalState = { state: "empty" };
@@ -113,6 +128,11 @@ function deleteTask( task ){
         localStorage.setItem( "todoproject-tasks", JSON.stringify( tasksArray ) );
     }
 }
+
+
+addButton.addEventListener( "click", function() {
+    addTask();
+})
 
 
 // the addTask() function

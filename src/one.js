@@ -129,3 +129,7 @@ class ModularTemplate {
         this.renderFunction( elementDOMRep );
     }
 }
+
+
+
+export { StatefulElement, ModularTemplate };
