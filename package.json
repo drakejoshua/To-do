@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/drakejoshua/To-do/issues"
   },
-  "homepage": "https://github.com/drakejoshua/To-do#readme"
+  "homepage": "https://github.com/drakejoshua/To-do#readme",
+  "devDependencies": {
+    "webpack-dev-server": "^4.15.1"
+  }
 }

@@ -51,14 +51,29 @@ var ToDoSectionStatefulRepresentation = new StatefulElement(
                     tasksList.innerHTML = "";
     
                     // make the tasksList a sortable( using sortable.js )
-                    var sortable = Sortable.create( tasksList, {
-                        swap: true,
-                        swapClass: "swap-class",
-                        animation: 300,
-                        onUpdate: function( event ) {
-                            updateSwapInTasksArray( event.oldIndex, event.newIndex );
-                        }
-                    } );
+                    if ( Sortable.active == null ) {
+
+                        var sortable = Sortable.create( tasksList, {
+                            swap: true,
+                            swapClass: "swap-class",
+                            animation: 300,
+                            onUpdate: function( event ) {
+                                updateSwapInTasksArray( event.oldIndex, event.newIndex );
+                            }
+                        } );
+                    } else {
+
+                        sortable.destroy();
+
+                        sortable = Sortable.create( tasksList, {
+                            swap: true,
+                            swapClass: "swap-class",
+                            animation: 300,
+                            onUpdate: function( event ) {
+                                updateSwapInTasksArray( event.oldIndex, event.newIndex );
+                            }
+                        } );
+                    }
     
                     // insert all the task in this state into the tasksList as <li> elements
                     for ( var task of internalState.tasks ) {
@@ -186,4 +201,7 @@ function updateSwapInTasksArray( oldIndex, newIndex ){
 
     // save the tasksArray to localStorage for later retrieval
     localStorage.setItem( "todoproject-tasks", JSON.stringify( tasksArray ) );
+
+    console.log("update suceess");
+    console.log( tasksArray );
 }
